@@ -22,13 +22,24 @@ export class Planet {
     this.name = name;
   }
 
+  // Calculate years to live in other planet
   calculateLeftToLive(user) {
-    let yearsToLive = 0;
+    let planetYears;
     switch(this.name) {
       case "Mercury" :
-        user.age = parseFloat((user.age / 0.24).toFixed(2));
-        yearsToLive = user.calculateLifeExpectancy() - user.age;
+        planetYears = 0.24;
+        break;
+      case "Venus" :
+        planetYears = 0.62;
+        break;
+      case "Mars" :
+        planetYears = 1.88;
+        break;
+      case "Jupiter" :
+        planetYears = 11.86;
     }
+    const userLifeExpectancy = user.calculateLifeExpectancy();
+    const yearsToLive = parseFloat(((userLifeExpectancy - user.age) / planetYears).toFixed(2));
     return yearsToLive;
   }
 }
