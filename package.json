@@ -1,7 +1,7 @@
 {
-  "name": "tdd-starter",
+  "name": "planet-age-calculator",
   "version": "1.0.0",
-  "description": "tdd starter",
+  "description": "planet-age-calculator",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/karma/bin/karma start karma.conf.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/misakimichy/tdd-starter.git"
+    "url": "git+https://github.com/misakimichy/planet-age-calculator.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/misakimichy/tdd-starter/issues"
+    "url": "https://github.com/misakimichy/planet-age-calculator/issues"
   },
-  "homepage": "https://github.com/misakimichy/tdd-starter#readme",
+  "homepage": "https://github.com/misakimichy/planet-age-calculator#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.3",
