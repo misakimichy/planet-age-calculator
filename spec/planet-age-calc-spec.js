@@ -2,8 +2,10 @@ import { User, Planet } from '../src/main';
 
 describe('User', function() {
   it('should return life expectancy', function() {
-    const user = new User(10, "Japan");
-    expect(user.calculateLifeExpectancy()).toEqual(83.7);
+    const user1 = new User(10, "Japan");
+    expect(user1.calculateLifeExpectancy()).toEqual(83.7);
+    const user2 = new User(10, "Mexico");
+    expect(function(){user2.calculateLifeExpectancy();}).toThrow(new Error("Please choose country from the list."));
   });
 });
 

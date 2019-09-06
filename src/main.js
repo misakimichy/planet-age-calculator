@@ -9,10 +9,43 @@ export class User {
 
   // Get country life expectancy: https://en.wikipedia.org/wiki/List_of_countries_by_life_expectancy
   calculateLifeExpectancy() {
+    let userLifeExpectancy;
     switch(this.country) {
+      case "the United States" :
+        userLifeExpectancy = 79.3;
+        break;
+      case "China" :
+        userLifeExpectancy = 76.1;
+        break;
       case "Japan" :
-        return 83.7;
+        userLifeExpectancy = 83.7;
+        break;
+      case "Germany" :
+        userLifeExpectancy = 81.0;
+        break;
+      case "United Kingdom" :
+        userLifeExpectancy = 81.2;
+        break;
+      case "India" :
+        userLifeExpectancy = 68.3;
+        break;
+      case "France" :
+        userLifeExpectancy = 82.4;
+        break;
+      case "Italy" :
+        userLifeExpectancy = 82.7;
+        break;
+      case "Brazil" :
+        userLifeExpectancy = 75.0;
+        break;
+      case "Canada" :
+        userLifeExpectancy = 82.2;
+        break;
+      default :
+        alert("Please choose country from the list.");
+        throw new Error("Please choose country from the list.");
     }
+    return userLifeExpectancy;
   }
 }
 
