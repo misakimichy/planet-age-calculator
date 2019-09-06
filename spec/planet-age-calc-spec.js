@@ -1,11 +1,16 @@
-import { CurrentStatus } from '../src/main';
+import { User, Planet } from '../src/main';
 
-const h1 = new CurrentStatus(10, "Japan", false, false);
-describe('currentStatus', function() {
-  it('should return age', function() {
-    expect(h1.returnAge()[0]).toEqual(41.67);
-    expect(h1.returnAge()[1]).toEqual(16.13);
-    expect(h1.returnAge()[2]).toEqual(5.32);
-    expect(h1.returnAge()[3]).toEqual(0.84);
+describe('User', function() {
+  it('should return life expectancy', function() {
+    const user = new User(10, "Japan");
+    expect(user.calculateLifeExpectancy()).toEqual(83.7);
+  });
+});
+
+describe('Planet', function() {
+  it('should calculate years to live', function() {
+    const user = new User(10, "Japan");
+    const planet = new Planet("Mercury");
+    expect(planet.calculateLeftToLive(user)).toEqual(42.03);
   });
 });
