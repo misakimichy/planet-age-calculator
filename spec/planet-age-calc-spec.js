@@ -8,6 +8,17 @@ describe('User', function() {
 });
 
 describe('Planet', function() {
+  it('should calculate current age to palnet age', function() {
+    const user = new User(10, "Japan");
+    const planet1 = new Planet("Mercury");
+    expect(planet1.calculateToPlanetAge(user)).toEqual(41.67);
+    const planet2 = new Planet("Venus");
+    expect(planet2.calculateToPlanetAge(user)).toEqual(16.13);
+    const planet3 = new Planet("Mars");
+    expect(planet3.calculateToPlanetAge(user)).toEqual(5.32);
+    const planet4 = new Planet("Jupiter");
+    expect(planet4.calculateToPlanetAge(user)).toEqual(0.84);
+  }),
   it('should calculate years to live', function() {
     const user = new User(10, "Japan");
     const planet1 = new Planet("Mercury");
