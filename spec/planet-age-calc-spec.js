@@ -1,8 +1,8 @@
-import { User, Planet } from '../src/main';
+import { countries, User, Planet } from '../src/main';
 
 describe('User', function() {
   it('should return life expectancy', function() {
-    const user = new User(10, "Japan");
+    const user = new User(10, countries.Japan);
     expect(user.calculateLifeExpectancy()).toEqual(83.7);
   });
   it('should error when passing an invalid country', function() {
@@ -13,7 +13,7 @@ describe('User', function() {
 
 describe('Planet', function() {
   it('should calculate current age to planet age', function() {
-    const user = new User(10, "Japan");
+    const user = new User(10, countries.Japan);
     const planet1 = new Planet("Mercury");
     expect(planet1.calculateToPlanetAge(user)).toEqual(41.67);
     const planet2 = new Planet("Venus");
@@ -24,7 +24,7 @@ describe('Planet', function() {
     expect(planet4.calculateToPlanetAge(user)).toEqual(0.84);
   }),
   it('should calculate years to live', function() {
-    const user = new User(10, "Japan");
+    const user = new User(10, countries.Japan);
     const planet1 = new Planet("Mercury");
     expect(planet1.calculateLeftToLive(user)).toEqual(307.08);
     const planet2 = new Planet("Venus");

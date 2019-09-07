@@ -3,6 +3,20 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
+// Countries enum
+export const countries = Object.freeze({
+  USA: "the United States",
+  China: "China",
+  Japan: "Japan",
+  Germany: "Germany",
+  UK: "United Kingdom",
+  India: "India",
+  France: "France",
+  Italy: "Italy",
+  Brazil: "Brazil",
+  Canada: "Canada",
+});
+
 // Backend logic
 export class User {
   constructor(age, country) {
@@ -14,34 +28,34 @@ export class User {
   calculateLifeExpectancy() {
     let userLifeExpectancy;
     switch(this.country) {
-      case "the United States" :
+      case countries.USA :
         userLifeExpectancy = 79.3;
         break;
-      case "China" :
+      case countries.China :
         userLifeExpectancy = 76.1;
         break;
-      case "Japan" :
+      case countries.Japan :
         userLifeExpectancy = 83.7;
         break;
-      case "Germany" :
+      case countries.Germany :
         userLifeExpectancy = 81.0;
         break;
-      case "United Kingdom" :
+      case countries.UK :
         userLifeExpectancy = 81.2;
         break;
-      case "India" :
+      case countries.India :
         userLifeExpectancy = 68.3;
         break;
-      case "France" :
+      case countries.France :
         userLifeExpectancy = 82.4;
         break;
-      case "Italy" :
+      case countries.Italy :
         userLifeExpectancy = 82.7;
         break;
-      case "Brazil" :
+      case countries.Brazil :
         userLifeExpectancy = 75.0;
         break;
-      case "Canada" :
+      case countries.Canada :
         userLifeExpectancy = 82.2;
         break;
       default :
