@@ -2,15 +2,17 @@ import { User, Planet } from '../src/main';
 
 describe('User', function() {
   it('should return life expectancy', function() {
-    const user1 = new User(10, "Japan");
-    expect(user1.calculateLifeExpectancy()).toEqual(83.7);
-    const user2 = new User(10, "Mexico");
-    expect(function(){user2.calculateLifeExpectancy();}).toThrow(new Error("Please choose country from the list."));
+    const user = new User(10, "Japan");
+    expect(user.calculateLifeExpectancy()).toEqual(83.7);
+  });
+  it('should error when passing an invalid country', function() {
+    const user = new User(10, "Mexico");
+    expect(function(){user.calculateLifeExpectancy();}).toThrow(new Error("Please choose country from the list."));
   });
 });
 
 describe('Planet', function() {
-  it('should calculate current age to palnet age', function() {
+  it('should calculate current age to planet age', function() {
     const user = new User(10, "Japan");
     const planet1 = new Planet("Mercury");
     expect(planet1.calculateToPlanetAge(user)).toEqual(41.67);
