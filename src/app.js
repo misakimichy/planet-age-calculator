@@ -13,13 +13,14 @@ export const countries = Object.freeze({
   Canada: "Canada",
 });
 
+// User class
 export class User {
   constructor(age, country) {
     this.age = age;
     this.country = country;
   }
 
-  // Get country life expectancy: https://en.wikipedia.org/wiki/List_of_countries_by_life_expectancy
+  // Get country life expectancy from https://en.wikipedia.org/wiki/List_of_countries_by_life_expectancy
   calculateLifeExpectancy() {
     let userLifeExpectancy;
     switch(this.country) {
@@ -60,7 +61,7 @@ export class User {
   }
 }
 
-// Planet enum
+// Planets enum
 export const planets = Object.freeze({
   Mercury: "Mercury",
   Venus: "Venus",
@@ -91,7 +92,6 @@ export class Planet {
         planetYears = 11.86;
     }
     const userLifeExpectancy = user.calculateLifeExpectancy();
-
     const planetAge = parseFloat((user.age / planetYears).toFixed(2));
     const yearsToLive = parseFloat(((userLifeExpectancy - user.age) / planetYears).toFixed(2));
     
