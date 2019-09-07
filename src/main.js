@@ -1,4 +1,7 @@
 import $ from 'jquery';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css';
 
 // Backend logic
 export class User {
@@ -99,7 +102,13 @@ export class Planet {
 
 // Frontend logic
 $(document).ready(function(){
-  const user = new User(10, "Japan");
-  const planet = new Planet("Mercury");
-  return planet.calculateLeftToLive(user);
+  $("form").submit(function(event){
+    event.preventDefault();
+    const user = new User(10, "Japan");
+    const planet = new Planet("Mercury");
+  
+    $(".result").show();
+    return planet.calculateLeftToLive(user);
+  })
+
 });
