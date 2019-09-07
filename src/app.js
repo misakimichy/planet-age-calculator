@@ -74,28 +74,8 @@ export class Planet {
     this.name = name;
   }
 
-  // Calculate to planet years
-  calculateToPlanetAge(user) {
-    let planetYears;
-    switch(this.name) {
-      case planets.Mercury :
-        planetYears = 0.24;
-        break;
-      case planets.Venus :
-        planetYears = 0.62;
-        break;
-      case planets.Mars :
-        planetYears = 1.88;
-        break;
-      case planets.Jupiter :
-        planetYears = 11.86;
-    }
-    const planetAge = parseFloat((user.age / planetYears).toFixed(2));
-    return planetAge;
-  }
-
   // Calculate years to live in other planet
-  calculateLeftToLive(user) {
+  calculateAges(user) {
     let planetYears;
     switch(this.name) {
       case planets.Mercury :
@@ -111,7 +91,13 @@ export class Planet {
         planetYears = 11.86;
     }
     const userLifeExpectancy = user.calculateLifeExpectancy();
+
+    const planetAge = parseFloat((user.age / planetYears).toFixed(2));
     const yearsToLive = parseFloat(((userLifeExpectancy - user.age) / planetYears).toFixed(2));
-    return yearsToLive;
+    
+    return {
+      planetAge: planetAge,
+      yearsToLive: yearsToLive
+    };
   }
 }

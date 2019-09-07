@@ -18,8 +18,10 @@ $(document).ready(function(){
     try {
       $(".result").show();
       $(".planet").text(planet.name);
-      $(".age").text(planet.calculateToPlanetAge(user));
-      $(".years-left").text(planet.calculateLeftToLive(user));
+
+      const result = planet.calculateAges(user);
+      $(".age").text(result.planetAge);
+      $(".years-left").text(result.yearsToLive);
     } catch (error) {
       alert(error.message);
     }
