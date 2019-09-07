@@ -7,5 +7,45 @@
   <title>Planet Age Calculator</title>
 </head>
 <body>
+  <div class="container">
+    <h1>Planet Age Calculator</h1>
+    <p>We'll calculate your age to the other planet age</p>
+    <form>
+      <div class="form-group">
+        <div class="input">
+          <label for="age">Type your age:</label>
+          <input type="number" id="age">
+        </div>
+        <div class="dropdown">
+          <select id="country">
+            <option value='' default selected disabled>Select your country:</option>
+            <option value="the United States">The United States</option>
+            <option value="China">China</option>
+            <option value="Japan">Japan</option>
+            <option value="Germany">Germany</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="India">India</option>
+            <option value="France">France</option>
+            <option value="Italy">Italy</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Canada">Canada</option>
+          </select>
+        </div>
+        <div class="dropdown">
+          <select id="planet">
+            <option value='' default selected disabled>Select the planet</option>
+            <option value="Mercury">Mercury</option>
+            <option value="Venus">Venus</option>
+            <option value="Mars">Mars</option>
+            <option value="Jupiter">Jupiter</option>
+          </select>
+        </div>
+        <button class="btn" type="submit">See me in the other planet!</button>
+      </div>
+    </form>
+    <div class="result">
+      <p>This is the result.</p>
+    </div>
+  </div>
 </body>
 </html>

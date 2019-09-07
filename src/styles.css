@@ -1,18 +1,44 @@
-h1,
-.form-group {
+:root {
+  --black: #232222;
+  --white: #f2eded
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 20px;
+}
+
+h1, p {
   text-align: center;
+}
+
+.form-group {
+  width: 80%;
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  margin: 10px auto;
+}
+
+.dropdown {
+  margin: 10px auto;
+}
+
+.btn {
+  background-color: var(--white);
+  display: block;
+  margin: 10px auto;
+  font-size: 20px;
 }
 
 .result {
   display: none;
-  background-color: light-gray;
-}
-
-.btn {
-  display: block;
-  margin: 10px auto;
-}
-
-#roman-numeral {
-  font-size: 20px;
+  background-color: white;
 }
