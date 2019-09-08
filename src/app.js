@@ -13,11 +13,20 @@ export const countries = Object.freeze({
   Canada: "Canada",
 });
 
+// Planets enum
+export const planets = Object.freeze({
+  Mercury: "Mercury",
+  Venus: "Venus",
+  Mars: "Mars",
+  Jupiter: "Jupiter",
+});
+
 // User class
 export class User {
-  constructor(age, country) {
+  constructor(age, country, name) {
     this.age = age;
     this.country = country;
+    this.name = name;
   }
 
   // Get country life expectancy from https://en.wikipedia.org/wiki/List_of_countries_by_life_expectancy
@@ -59,24 +68,9 @@ export class User {
     }
     return userLifeExpectancy;
   }
-}
-
-// Planets enum
-export const planets = Object.freeze({
-  Mercury: "Mercury",
-  Venus: "Venus",
-  Mars: "Mars",
-  Jupiter: "Jupiter",
-});
-
-// Planet class
-export class Planet {
-  constructor(name) {
-    this.name = name;
-  }
 
   // Calculate years to live in other planet
-  calculateAges(user) {
+  calculateAges() {
     let planetYears;
     switch(this.name) {
       case planets.Mercury :
@@ -91,9 +85,9 @@ export class Planet {
       case planets.Jupiter :
         planetYears = 11.86;
     }
-    const userLifeExpectancy = user.calculateLifeExpectancy();
-    const planetAge = parseFloat((user.age / planetYears).toFixed(2));
-    const yearsToLive = parseFloat(((userLifeExpectancy - user.age) / planetYears).toFixed(2));
+    const userLifeExpectancy = this.calculateLifeExpectancy();
+    const planetAge = parseFloat((this.age / planetYears).toFixed(2));
+    const yearsToLive = parseFloat(((userLifeExpectancy - this.age) / planetYears).toFixed(2));
     
     return {
       planetAge: planetAge,
