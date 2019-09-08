@@ -41,9 +41,12 @@ $(document).ready(function(){
       // Save the return object and render them.
       const result = user.calculateAges();
       $(".age").text(result.planetAge);
-      $(".years-left").text(result.yearsToLive);
-      $(".result").prepend(`<img src="${planets[inputPlanet]}" alt="Image of ${user.planet}">`);
       $(".planet").text(inputPlanet);
+      $(".result").append((user.age > user.calculateLifeExpectancy())
+        ?(`<p>You have passed the average of life expectancy and you lived past <span class="years-left">${result.yearsToLive}</span> years.</p>`)
+        :(`<p>Your life expectancy in <span class="planet">${user.planet}</span> is <span class="years-left">${result.yearsToLive}</span> years.</p>`)
+      );
+      $(".result").prepend(`<img src="${planets[inputPlanet]}" alt="Image of ${user.planet}">`);
       $(".result").show();
     } catch (error) {
       alert(error.message);
