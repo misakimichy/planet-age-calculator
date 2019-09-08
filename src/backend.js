@@ -15,18 +15,18 @@ export const countries = Object.freeze({
 
 // Planets enum
 export const planets = Object.freeze({
-  Mercury: "Mercury",
-  Venus: "Venus",
-  Mars: "Mars",
-  Jupiter: "Jupiter",
+  Mercury: "/img/mercury.jpg",
+  Venus: "/img/venus.jpg",
+  Mars: "/img/mars.jpg",
+  Jupiter: "/img/jupiter.jpg"
 });
 
 // User class
 export class User {
-  constructor(age, country, name) {
+  constructor(age, country, planet) {
     this.age = age;
     this.country = country;
-    this.name = name;
+    this.planet = planet;
   }
 
   // Get country life expectancy from https://en.wikipedia.org/wiki/List_of_countries_by_life_expectancy
@@ -71,27 +71,31 @@ export class User {
 
   // Calculate years to live in other planet
   calculateAges() {
+    // Return the keys of planets object
+    const planetName = Object.keys(planets).map(planet => {
+      return planet;
+    });
     let planetYears;
-    switch(this.name) {
-      case planets.Mercury :
+    switch(this.planet) {
+      case planetName[0] :
         planetYears = 0.24;
         break;
-      case planets.Venus :
+      case planetName[1] :
         planetYears = 0.62;
         break;
-      case planets.Mars :
+      case planetName[2] :
         planetYears = 1.88;
         break;
-      case planets.Jupiter :
+      case planetName[3] :
         planetYears = 11.86;
     }
     const userLifeExpectancy = this.calculateLifeExpectancy();
     const planetAge = parseFloat((this.age / planetYears).toFixed(2));
     const yearsToLive = parseFloat(((userLifeExpectancy - this.age) / planetYears).toFixed(2));
-    
+
     return {
       planetAge: planetAge,
-      yearsToLive: yearsToLive
+      yearsToLive: yearsToLive,
     };
   }
 }

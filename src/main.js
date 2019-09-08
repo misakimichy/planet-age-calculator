@@ -13,9 +13,21 @@ const createCountryOptions = () => {
 
 // Create planet HTML option elements using planets enum
 const createPlanetOptions = () => {
-  Object.values(planets).map(planet => {
+  Object.keys(planets).map(planet => {
     $("select#planet").append(`<option value="${planet}">${planet}</option>`);
   });
+};
+
+// Show the selected planet image
+const showPlanetImage = inputPlanet => {
+  let planetImage;
+  Object.keys(planets).find(key => {
+    if(planets[key].includes(inputPlanet.toLowerCase()) === true) {
+      planetImage = planets[key];
+    }
+    return;
+  });
+  return planetImage;
 };
 
 // Frontend logic
@@ -32,13 +44,14 @@ $(document).ready(function(){
 
     // Call backend logic and catch error here.
     try {
-      $(".result").show();
-      $(".planet").text(user.name);
-      
       // Save the return object and render them.
       const result = user.calculateAges();
       $(".age").text(result.planetAge);
       $(".years-left").text(result.yearsToLive);
+      $(".result").prepend(`<img src="${showPlanetImage(inputPlanet)}" alt="Image of ${inputPlanet}">`);
+      console.log("call showPlanetImage func:", showPlanetImage(inputPlanet));
+      $(".planet").text(inputPlanet);
+      $(".result").show();
     } catch (error) {
       alert(error.message);
     }
