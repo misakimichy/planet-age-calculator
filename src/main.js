@@ -4,6 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { User, countries, planets } from './backend';
 
+// Force loading all images into webpack
+function importAll(r) {
+  return r.keys().map(r);
+}
+const images = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
+
 // Create country HTML option elements using countries enum
 const createCountryOptions = () => {
   Object.values(countries).map(country => {
