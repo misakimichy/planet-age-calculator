@@ -2,18 +2,26 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-import { User, Planet, countries } from './app';
+import { User, Planet, countries, planets } from './app';
 
-// Create country HTML elements accessing countries enums
+// Create country HTML option elements using countries enums
 const createCountryOptions = () => {
   Object.values(countries).map(country => {
     $("select#country").append(`<option value="${country}">${country}</option>`);
   });
 };
 
+// Create planet HTML option elements using planets enums
+const createPlanetOptions = () => {
+  Object.values(planets).map(planet => {
+    $("select#planet").append(`<option value="${planet}">${planet}</option>`);
+  });
+};
+
 // Frontend logic
 $(document).ready(function(){
   createCountryOptions();
+  createPlanetOptions();
   $("form").submit(function(event){
     event.preventDefault();
     const inputAge = parseInt($("input#age").val());
