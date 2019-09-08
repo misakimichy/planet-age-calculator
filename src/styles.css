@@ -44,3 +44,9 @@ h1, p {
   margin-top: 20px;
   display: none;
 }
+
+img {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+}

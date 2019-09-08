@@ -49,7 +49,6 @@ $(document).ready(function(){
       $(".age").text(result.planetAge);
       $(".years-left").text(result.yearsToLive);
       $(".result").prepend(`<img src="${showPlanetImage(inputPlanet)}" alt="Image of ${inputPlanet}">`);
-      console.log("call showPlanetImage func:", showPlanetImage(inputPlanet));
       $(".planet").text(inputPlanet);
       $(".result").show();
     } catch (error) {

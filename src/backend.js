@@ -15,10 +15,10 @@ export const countries = Object.freeze({
 
 // Planets enum
 export const planets = Object.freeze({
-  Mercury: "/img/mercury.jpg",
-  Venus: "/img/venus.jpg",
-  Mars: "/img/mars.jpg",
-  Jupiter: "/img/jupiter.jpg"
+  Mercury: "img/mercury.jpg",
+  Venus: "img/venus.jpg",
+  Mars: "img/mars.jpg",
+  Jupiter: "img/jupiter.jpg"
 });
 
 // User class
