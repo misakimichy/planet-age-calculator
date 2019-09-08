@@ -1,4 +1,4 @@
-import { countries, planets, User } from '../src/app';
+import { countries, planets, User } from '../src/backend';
 
 describe('User', function() {
   it('should return life expectancy', function() {

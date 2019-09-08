@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-import { User, countries, planets } from './app';
+import { User, countries, planets } from './backend';
 
 // Create country HTML option elements using countries enum
 const createCountryOptions = () => {
