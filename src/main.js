@@ -24,18 +24,6 @@ const createPlanetOptions = () => {
   });
 };
 
-// Show the selected planet image
-const showPlanetImage = inputPlanet => {
-  let planetImage;
-  Object.keys(planets).find(key => {
-    if(planets[key].includes(inputPlanet.toLowerCase()) === true) {
-      planetImage = planets[key];
-    }
-    return;
-  });
-  return planetImage;
-};
-
 // Frontend logic
 $(document).ready(function(){
   createCountryOptions();
@@ -54,7 +42,7 @@ $(document).ready(function(){
       const result = user.calculateAges();
       $(".age").text(result.planetAge);
       $(".years-left").text(result.yearsToLive);
-      $(".result").prepend(`<img src="${showPlanetImage(inputPlanet)}" alt="Image of ${inputPlanet}">`);
+      $(".result").prepend(`<img src="${planets[inputPlanet]}" alt="Image of ${user.planet}">`);
       $(".planet").text(inputPlanet);
       $(".result").show();
     } catch (error) {
