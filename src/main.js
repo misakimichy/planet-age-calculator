@@ -5,9 +5,7 @@ import './styles.css';
 import { User, countries, planets } from './backend';
 
 // Force loading all images into webpack
-function importAll(r) {
-  return r.keys().map(r);
-}
+const importAll = r => r.keys().map(r);
 const images = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
 
 // Create country HTML option elements using countries enum
@@ -22,6 +20,13 @@ const createPlanetOptions = () => {
   Object.keys(planets).map(planet => {
     $("select#planet").append(`<option value="${planet}">${planet}</option>`);
   });
+};
+
+// Clear form function
+const clearForm = () => {
+  $("input#age").val('');
+  $("select#country").prop('selectedIndex', 0);
+  $("select#planet").prop('selectedIndex', 0);
 };
 
 // Frontend logic
@@ -48,6 +53,7 @@ $(document).ready(function(){
       );
       $(".result").prepend(`<img src="${planets[inputPlanet]}" alt="Image of ${user.planet}">`);
       $(".result").show();
+      clearForm();
     } catch (error) {
       alert(error.message);
     }
