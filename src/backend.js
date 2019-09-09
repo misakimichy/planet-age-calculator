@@ -91,8 +91,8 @@ export class User {
     }
     const userLifeExpectancy = this.calculateLifeExpectancy();
     const planetAge = parseFloat((this.age / planetYears).toFixed(2));
-    const yearsToLive = this.age > userLifeExpectancy
-      ? parseFloat((this.age - userLifeExpectancy / planetYears).toFixed(2))
+    const yearsToLive = (this.age > userLifeExpectancy)
+      ? parseFloat(((this.age - userLifeExpectancy) / planetYears).toFixed(2))
       : parseFloat(((userLifeExpectancy - this.age) / planetYears).toFixed(2));
 
     return {
